@@ -1,0 +1,16 @@
+initialize a project with npm (npm init -y)
+express install
+
+
+
+setting up parsers
+setting up ejs (ejs exact dupliacte of html but can calculate)
+npm i ejs
+
+set up ejs as a view engine 
+(folder name is views must)
+
+how to get data coming from frontend at Backend
+setting up public static files
+
+
