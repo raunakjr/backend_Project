@@ -1,0 +1,12 @@
+installed express
+installed mongoose
+
+
+create file lets say usermodel.js
+1:- export mongoose
+2:- connect mongodb
+3:- create UserSchema
+4:- creat model and export it with = 
+
+create route for that
+
