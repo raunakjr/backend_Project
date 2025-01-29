@@ -1,0 +1,29 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-600">
+    <div class="w-full h-fulll p-10">
+      <a class="bg-red-600 rounded" href="/read"> View Users</a>
+      <form action="/submit" method="post">
+        <label for="username">Image Url</label>
+        <input class="w-1/2 m-5" type="url" name="image" id="image" />
+
+        <br />
+        <label for="name">Enter Name</label>
+        <input class="w-1/2 m-5" type="text" name="name" id="name" />
+
+        <br />
+        <label for="email">Email</label>
+        <input class="w-1/2 m-5" type="email" name="email" id="email" />
+
+        <br />
+        <input type="submit" class="bg-blue-600 rounded" value="Submit" />
+      </form>
+    </div>
+  </body>
+</html>
