@@ -1,0 +1,13 @@
+we need to learn this things first
+1:- cookie kaise set karte h
+2:- bcrypt kaise use krte h for pass encryption and decrytion
+3:-jwt kya h and jwt main data kaise store karien and bahar nikale
+
+
+install npm i jsonwebtoken bcrypt
+install express
+install cookie-parser
+
+copy code from bcrpyt web to make hash and then compare install
+
+jwt
