@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-zinc-700 text-white">
+    <!-- Main Container -->
+    <div
+      class="w-full min-h-screen flex flex-col items-center justify-center p-10"
+    >
+      <!-- Logout Button -->
+      <a
+        class="bg-red-600 text-white px-4 py-2 rounded-md hover:bg-red-700 transition mb-4"
+        href="/logout"
+      >
+        Logout
+      </a>
+
+      <!-- Profile Section -->
+      <div class="flex flex-col items-center mt-8">
+        <!-- Profile Picture -->
+        <div
+          class="relative w-32 h-32 rounded-full overflow-hidden border-4 border-blue-500"
+        >
+          <img class="w-full h-full object-cover" src="/images/uploads/<%=
+          user?user.profilepic:"abc" %>" alt="Profile Picture" />
+        </div>
+
+        <!-- Change Profile Picture -->
+        <a
+          href="/profile/upload"
+          class="mt-4 text-blue-400 hover:text-blue-500 text-md font-medium border-b-2 border-blue-400 hover:border-blue-500 transition duration-300"
+        >
+          Change Profile Picture
+        </a>
+      </div>
+
+      <!-- User Greeting -->
+      <h3 class="text-3xl font-semibold mt-10 text-center">
+        Hello, <%= user ? user.name : "" %>
+      </h3>
+      <h5 class="text-lg mt-2 text-center">You can create a new post below.</h5>
+
+      <!-- Post Form -->
+      <form class="mt-5 w-full sm:w-1/2" action="/post" method="post">
+        <textarea
+          placeholder="Write what's on your mind..."
+          class="w-full h-32 resize-none bg-zinc-800 text-white mt-3 border border-blue-500 rounded-lg p-3 outline-none focus:ring-2 focus:ring-blue-400"
+          name="content"
+        ></textarea>
+        <input
+          class="bg-blue-600 text-white font-semibold rounded-md px-4 py-2 mt-3 cursor-pointer hover:bg-blue-700 transition block"
+          type="submit"
+          value="Create New Post"
+        />
+      </form>
+
+      <!-- Posts Section -->
+      <div class="w-full sm:w-1/2 mt-10 flex flex-col gap-4 text-white">
+        <% user && user.posts.reverse().forEach((post) => { %>
+        <div
+          class="p-5 bg-zinc-800 rounded-lg shadow-lg hover:shadow-xl transition"
+        >
+          <h1 class="text-rose-300 font-semibold"><%= user.username %></h1>
+          <h4 class="text-lg mt-2"><%= post.content %></h4>
+          <small class="mt-2 inline-block text-yellow-500 text-lg">
+            <%= post && post.likes ? post.likes.length : 0 %> Likes
+          </small>
+
+          <!-- Like & Edit Buttons -->
+          <div class="flex justify-between items-center mt-4">
+            <% if (post && post.likes && post.likes.length === 0) { %>
+            <a
+              href="/like/<%= post._id %>"
+              class="text-red-500 hover:underline flex items-center"
+            >
+              ❤️ Like
+            </a>
+            <% } else { %>
+            <a
+              href="/like/<%= post._id %>"
+              class="text-red-500 hover:underline flex items-center"
+            >
+              💔 Unlike
+            </a>
+            <% } %>
+
+            <!-- Edit and Delete Icons -->
+            <div class="flex gap-4">
+              <a
+                href="/edit/<%= post._id %>"
+                class="text-blue-400 hover:text-blue-600"
+              >
+                ✏️ Edit
+              </a>
+              <a
+                href="/delete/<%= post._id %>"
+                class="text-red-500 hover:text-red-700"
+              >
+                🗑️ Delete
+              </a>
+            </div>
+          </div>
+        </div>
+        <% }) %>
+      </div>
+    </div>
+  </body>
+</html>

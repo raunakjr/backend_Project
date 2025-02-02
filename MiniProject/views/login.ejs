@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <div
+      class="w-full h-screen flex flex-col justify-center items-center bg-gray-800 text-white"
+    >
+      <form
+        action="/login"
+        method="post"
+        class="bg-gray-900 p-8 rounded-lg shadow-lg w-96"
+      >
+        <h2 class="text-2xl font-bold mb-4 text-center">Login</h2>
+
+        <!-- Error Message Box -->
+        <div
+          id="error-box"
+          class="hidden bg-red-500 text-white p-2 rounded-md text-center mb-4"
+        ></div>
+
+        <input
+          class="w-full p-2 bg-transparent border-2 rounded outline-none border-gray-600 mb-4"
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          required
+        />
+
+        <input
+          class="w-full p-2 bg-transparent border-2 rounded outline-none border-gray-600 mb-4"
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          required
+        />
+
+        <input
+          class="w-full bg-yellow-600 text-black font-semibold rounded-md p-2 cursor-pointer"
+          type="submit"
+          value="Login"
+        />
+
+        <!-- Sign Up Button -->
+        <p class="text-center mt-4 text-gray-400">
+          Don't have an account?
+          <a href="/" class="text-blue-400 hover:underline font-semibold"
+            >Sign Up</a
+          >
+        </p>
+      </form>
+    </div>
+
+    <script>
+      // Get error message from URL and display it
+      const urlParams = new URLSearchParams(window.location.search);
+      const errorMessage = urlParams.get("error");
+
+      if (errorMessage) {
+        const errorBox = document.getElementById("error-box");
+        errorBox.textContent = errorMessage;
+        errorBox.classList.remove("hidden");
+      }
+
+      // Check if the user is logged in before navigating to profile
+    </script>
+  </body>
+</html>

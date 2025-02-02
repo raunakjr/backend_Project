@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="flex items-center justify-center min-h-screen bg-gradient-to-r from-gray-900 to-gray-700 text-white"
+  >
+    <div class="w-full max-w-md bg-gray-800 rounded-xl shadow-lg p-8">
+      <h2 class="text-3xl font-semibold text-center text-blue-400 mb-6">
+        Create an Account
+      </h2>
+
+      <!-- Error Message Box -->
+      <div
+        id="error-box"
+        class="hidden bg-red-500 text-white p-2 rounded-md text-center mb-4"
+      ></div>
+
+      <form action="/register" method="post" class="flex flex-col space-y-4">
+        <input
+          class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          type="text"
+          name="name"
+          placeholder="Enter name"
+          required
+        />
+        <input
+          class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          type="text"
+          name="username"
+          placeholder="Enter username"
+          required
+        />
+        <input
+          class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          type="email"
+          name="email"
+          placeholder="Enter email"
+          required
+        />
+        <input
+          class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          type="password"
+          name="password"
+          placeholder="Enter password"
+          required
+        />
+        <input
+          class="w-full px-4 py-2 bg-gray-900 border border-gray-600 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          type="number"
+          name="age"
+          placeholder="Enter Age"
+          required
+        />
+        <button
+          class="w-full px-4 py-2 bg-blue-600 hover:bg-blue-500 transition-all duration-300 rounded-md font-semibold text-lg shadow-md"
+          type="submit"
+        >
+          Create User
+        </button>
+      </form>
+      <p class="text-gray-400 text-sm text-center mt-4">
+        Already have an account?
+        <a href="/login" class="text-blue-400 hover:underline">Sign In</a>
+      </p>
+    </div>
+
+    <script>
+      // Get error message from URL and display it
+      const urlParams = new URLSearchParams(window.location.search);
+      const errorMessage = urlParams.get("error");
+
+      if (errorMessage) {
+        const errorBox = document.getElementById("error-box");
+        errorBox.textContent = errorMessage;
+        errorBox.classList.remove("hidden");
+      }
+    </script>
+  </body>
+</html>
