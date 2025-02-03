@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const productSchema = mongoose.create({
-  image: String,
+const productSchema = mongoose.Schema({
+  image: Buffer,
   name: String,
   price: Number,
   discount: {

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Account</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-900 text-white">
+    <%- include("./headers") %>
+
+    <div class="container mx-auto py-8">
+      <h1 class="text-4xl font-bold text-center text-blue-400 mb-6">
+        My Account
+      </h1>
+
+      <div class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <div class="flex items-center space-x-6 mb-6">
+          <!-- Display Profile Picture -->
+          <img
+            src="data:image/jpeg;base64,<%= user.picture && user.picture.toString('base64') %>"
+            alt="Profile Picture"
+            class="w-24 h-24 rounded-full border-4 border-blue-400"
+          />
+
+          <div>
+            <h2 class="text-2xl font-semibold text-blue-400">
+              Welcome, <%= user.fullname %>!
+            </h2>
+            <p class="text-lg mt-2">Email: <%= user.email %></p>
+            <p class="text-lg mt-2">Username: <%= user.fullname %></p>
+            <p class="text-lg mt-2">Contact: <%= user.contact %></p>
+          </div>
+        </div>
+
+        <div class="mt-8 text-center">
+          <a
+            href="/update-profile"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 text-lg rounded-lg font-semibold"
+          >
+            Update Profile
+          </a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+s

@@ -1,0 +1,3 @@
+Home page-> login /register / shop(that container all pdts)
+owner route-> handle create pdts
+product route -> create product handelled by owner

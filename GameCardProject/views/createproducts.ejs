@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Product</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body
+    class="bg-gray-900 text-white flex justify-center items-center min-h-screen"
+  >
+    <div class="w-full max-w-3xl bg-gray-800 p-8 rounded-lg shadow-lg">
+      <h2 class="text-3xl font-semibold text-center text-blue-400 mb-6">
+        Add New Product
+      </h2>
+
+      <!-- Product Form -->
+      <form
+        action="/products/create"
+        method="POST"
+        enctype="multipart/form-data"
+        class="space-y-6"
+      >
+        <!-- Product Image -->
+        <div class="flex flex-col">
+          <label for="image" class="text-lg font-medium text-gray-300"
+            >Product Image</label
+          >
+          <input
+            type="file"
+            name="image"
+            id="image"
+            class="mt-2 p-3 bg-gray-900 border border-gray-600 rounded-md"
+            required
+          />
+        </div>
+
+        <!-- Product Name -->
+        <div class="flex flex-col">
+          <label for="name" class="text-lg font-medium text-gray-300"
+            >Product Name</label
+          >
+          <input
+            type="text"
+            name="name"
+            id="name"
+            placeholder="Enter product name"
+            class="mt-2 p-3 bg-gray-900 border border-gray-600 rounded-md"
+            required
+          />
+        </div>
+
+        <!-- Price -->
+        <div class="flex flex-col">
+          <label for="price" class="text-lg font-medium text-gray-300"
+            >Price</label
+          >
+          <input
+            type="number"
+            name="price"
+            id="price"
+            placeholder="Enter product price"
+            class="mt-2 p-3 bg-gray-900 border border-gray-600 rounded-md"
+            required
+          />
+        </div>
+
+        <!-- Discount -->
+        <div class="flex flex-col">
+          <label for="discount" class="text-lg font-medium text-gray-300"
+            >Discount</label
+          >
+          <input
+            type="number"
+            name="discount"
+            id="discount"
+            placeholder="Enter discount (optional)"
+            class="mt-2 p-3 bg-gray-900 border border-gray-600 rounded-md"
+          />
+        </div>
+
+        <!-- Background Color -->
+        <div class="flex flex-col">
+          <label for="bgcolor" class="text-lg font-medium text-gray-300"
+            >Background Color</label
+          >
+          <input
+            type="color"
+            name="bgcolor"
+            id="bgcolor"
+            class="mt-2 p-3 bg-gray-900 border border-gray-600 rounded-md"
+          />
+        </div>
+
+        <!-- Panel Color -->
+        <div class="flex flex-col">
+          <label for="panelcolor" class="text-lg font-medium text-gray-300"
+            >Panel Color</label
+          >
+          <input
+            type="color"
+            name="panelcolor"
+            id="panelcolor"
+            class="mt-2 p-3 bg-gray-900 border border-gray-600 rounded-md"
+          />
+        </div>
+
+        <!-- Text Color -->
+        <div class="flex flex-col">
+          <label for="textcolor" class="text-lg font-medium text-gray-300"
+            >Text Color</label
+          >
+          <input
+            type="color"
+            name="textcolor"
+            id="textcolor"
+            class="mt-2 p-3 bg-gray-900 border border-gray-600 rounded-md"
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 rounded-md mt-6 transition"
+        >
+          Add Product
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
